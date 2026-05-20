@@ -188,20 +188,47 @@
 <footer><p>© 2026 <span>Isaac Kuria</span> · Data Scientist & AI Researcher · Commonwealth Scholar · <a href="https://kuriaspace.github.io" style="color:var(--gold);">kuriaspace.github.io</a></p></footer>
 <script src="main.js"></script>
 <script>
-// Form submission handler — opens email client
-document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+// Form submission handler — sends to Google Sheets
+document.getElementById('contact-form')?.addEventListener('submit', async function(e) {
   e.preventDefault();
+  const btn = this.querySelector('.submit-btn');
+  const successMsg = document.getElementById('success-msg');
   const fields = this.querySelectorAll('input, select, textarea');
-  const name = fields[0].value + ' ' + fields[1].value;
-  const email = fields[2].value;
-  const org = fields[3].value;
-  const type = fields[4].value;
-  const msg = fields[5].value;
-  const subject = encodeURIComponent(`Portfolio Contact: ${type} — ${name}`);
-  const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\nOrganisation: ${org}\nType: ${type}\n\nMessage:\n${msg}`);
-  window.location.href = `mailto:i.kuria@hotmail.com?subject=${subject}&body=${body}`;
-  document.getElementById('success-msg').style.display = 'block';
-  this.reset();
+
+  // Show loading state
+  btn.innerHTML = '<span>Sending...</span>';
+  btn.disabled = true;
+
+  const payload = {
+    firstName:    fields[0].value.trim(),
+    lastName:     fields[1].value.trim(),
+    email:        fields[2].value.trim(),
+    organisation: fields[3].value.trim(),
+    type:         fields[4].value,
+    message:      fields[5].value.trim()
+  };
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxM7Gq_zcsktGzSpP4TOd90d613nnLTFSAa7X4DQQwC9oHzYo4R4UtuoDhGXPlEL73M0A/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    // Show success
+    successMsg.style.display = 'block';
+    successMsg.textContent = '✅ Thank you! Your message has been received. I\'ll get back to you within 24 hours.';
+    this.reset();
+  } catch (err) {
+    successMsg.style.display = 'block';
+    successMsg.style.background = 'rgba(220,38,38,0.1)';
+    successMsg.style.borderColor = 'rgba(220,38,38,0.3)';
+    successMsg.style.color = '#f87171';
+    successMsg.textContent = '❌ Something went wrong. Please email me directly at i.kuria@hotmail.com';
+  } finally {
+    btn.innerHTML = '<span>Send Message</span> <span>→</span>';
+    btn.disabled = false;
+  }
 });
 </script>
 </body>
