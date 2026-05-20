@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CV — Isaac Kuria</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+.page-hero { padding:9rem 3rem 5rem; background:var(--navy2); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+.page-hero-label { font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:0.5rem; animation:fadeUp 0.6s ease both; }
+.page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:600; color:var(--cream); animation:fadeUp 0.6s 0.1s ease both; }
+.page-hero h1 em { color:var(--teal); font-style:italic; }
+.cv-layout { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; }
+.cv-sidebar { position:sticky; top:90px; }
+.cv-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:1.5rem; margin-bottom:1.2rem; }
+.cv-panel h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--cream); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
+.cv-contact-item { display:flex; align-items:flex-start; gap:0.7rem; margin-bottom:0.8rem; font-size:0.85rem; color:var(--gray-light); }
+.cv-contact-item a { color:var(--teal-light); text-decoration:none; }
+.cv-contact-item a:hover { color:var(--gold); }
+.cv-skill-bar { margin-bottom:0.9rem; }
+.cv-skill-name { display:flex; justify-content:space-between; font-size:0.8rem; color:var(--gray-light); margin-bottom:0.3rem; }
+.cv-bar-track { height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+.cv-bar-fill { height:100%; background:linear-gradient(90deg, var(--teal), var(--teal-light)); border-radius:2px; width:0; transition:width 1.2s cubic-bezier(0.4,0,0.2,1); }
+.cv-main { }
+.cv-section { margin-bottom:2.5rem; }
+.cv-section-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--cream); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.7rem; }
+.cv-section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+.cv-entry { margin-bottom:1.5rem; padding-left:1rem; border-left:2px solid var(--teal); }
+.cv-entry-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:0.3rem; flex-wrap:wrap; }
+.cv-entry-title { font-weight:600; color:var(--cream); font-size:0.95rem; }
+.cv-entry-date { font-size:0.78rem; color:var(--teal); white-space:nowrap; }
+.cv-entry-org { color:var(--teal-light); font-size:0.83rem; margin-bottom:0.5rem; }
+.cv-entry ul { list-style:none; }
+.cv-entry ul li { color:var(--gray-light); font-size:0.85rem; padding:0.2rem 0; padding-left:1.1rem; position:relative; line-height:1.6; }
+.cv-entry ul li::before { content:'·'; position:absolute; left:0; color:var(--teal); font-size:1.2rem; line-height:1; }
+.download-bar { background:linear-gradient(135deg,var(--teal),var(--teal-light)); border-radius:10px; padding:2rem; text-align:center; margin-bottom:2rem; }
+.download-bar h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--white); margin-bottom:0.5rem; }
+.download-bar p { color:rgba(255,255,255,0.75); font-size:0.85rem; margin-bottom:1.2rem; }
+@media(max-width:900px) { .cv-layout { grid-template-columns:1fr; } .cv-sidebar { position:static; } }
+</style>
+</head>
+<body>
+<div class="page-transition"></div>
+<div id="progress-bar"></div>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <div class="nav-logo">Isaac <span>Kuria</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html" data-transition>Home</a></li>
+    <li><a href="about.html" data-transition>About</a></li>
+    <li><a href="projects.html" data-transition>Projects</a></li>
+    <li><a href="blog.html" data-transition>Blog</a></li>
+    <li><a href="cv.html" data-transition class="active">CV</a></li>
+    <li><a href="contact.html" data-transition class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" data-transition>Home</a>
+  <a href="about.html" data-transition>About</a>
+  <a href="projects.html" data-transition>Projects</a>
+  <a href="blog.html" data-transition>Blog</a>
+  <a href="cv.html" data-transition>CV</a>
+  <a href="contact.html" data-transition>Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-label">Curriculum Vitae</div>
+  <h1>Isaac Kuria —<br/><em>Data Scientist.</em></h1>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="download-bar reveal">
+      <h3>Download Full CV</h3>
+      <p>Get the complete PDF version of my curriculum vitae</p>
+      <a href="IsaacKuria_cv.pdf" download class="btn btn-gold">⬇ Download CV (PDF)</a>
+    </div>
+
+    <div class="cv-layout">
+      <!-- SIDEBAR -->
+      <div class="cv-sidebar reveal">
+        <div class="cv-panel">
+          <h3>Contact</h3>
+          <div class="cv-contact-item">📧 <a href="mailto:i.kuria@hotmail.com">i.kuria@hotmail.com</a></div>
+          <div class="cv-contact-item">📧 <a href="mailto:i.kuria@rgu.ac.uk">i.kuria@rgu.ac.uk</a></div>
+          <div class="cv-contact-item">📱 <a href="tel:+447349688208">+44 7349 688 208</a></div>
+          <div class="cv-contact-item">🔗 <a href="https://linkedin.com/in/kuriaspace" target="_blank">linkedin.com/in/kuriaspace</a></div>
+          <div class="cv-contact-item">🌐 <a href="https://kuriaspace.github.io" target="_blank">kuriaspace.github.io</a></div>
+        </div>
+        <div class="cv-panel">
+          <h3>Core Skills</h3>
+          <div class="cv-skill-bar"><div class="cv-skill-name"><span>Python & SQL</span><span>95%</span></div><div class="cv-bar-track"><div class="cv-bar-fill" data-width="95"></div></div></div>
+          <div class="cv-skill-bar"><div class="cv-skill-name"><span>Machine Learning</span><span>90%</span></div><div class="cv-bar-track"><div class="cv-bar-fill" data-width="90"></div></div></div>
+          <div class="cv-skill-bar"><div class="cv-skill-name"><span>NLP / Transformers</span><span>85%</span></div><div class="cv-bar-track"><div class="cv-bar-fill" data-width="85"></div></div></div>
+          <div class="cv-skill-bar"><div class="cv-skill-name"><span>Computer Vision</span><span>82%</span></div><div class="cv-bar-track"><div class="cv-bar-fill" data-width="82"></div></div></div>
+          <div class="cv-skill-bar"><div class="cv-skill-name"><span>Data Engineering</span><span>88%</span></div><div class="cv-bar-track"><div class="cv-bar-fill" data-width="88"></div></div></div>
+          <div class="cv-skill-bar"><div class="cv-skill-name"><span>Big Data (Spark)</span><span>78%</span></div><div class="cv-bar-track"><div class="cv-bar-fill" data-width="78"></div></div></div>
+        </div>
+        <div class="cv-panel">
+          <h3>Languages</h3>
+          <div style="color:var(--gray-light);font-size:0.85rem;margin-bottom:0.5rem;">🌍 English — Fluent</div>
+          <div style="color:var(--gray-light);font-size:0.85rem;">🌍 Kiswahili — Native</div>
+        </div>
+        <div class="cv-panel">
+          <h3>Certifications</h3>
+          <div style="color:var(--gray-light);font-size:0.82rem;line-height:2;">
+            📋 Diploma in Project Management<br/>
+            🔒 IT & Cybersecurity<br/>
+            🌐 CISCO IT Security<br/>
+            🐍 Verified Python Coder<br/>
+            🪪 SIA Licence (2029)
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="cv-main reveal delay-1">
+        <div class="cv-section">
+          <div class="cv-section-title">Profile</div>
+          <p style="color:var(--gray-light);font-size:0.92rem;line-height:1.8;">Commonwealth Scholar and data scientist with 11+ years in ICT operations within safety-critical environments. MSc Data Science candidate (dissertation phase) at Robert Gordon University. Skilled in ML, NLP, computer vision, and data engineering — with a focus on building solutions that create measurable human impact.</p>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Education</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">MSc Data Science — Dissertation Phase 🏅</span><span class="cv-entry-date">2025 – 2026</span></div>
+            <div class="cv-entry-org">Robert Gordon University, Aberdeen · Commonwealth Scholar</div>
+            <ul><li>Machine Learning, NLP, Computer Vision, Data Engineering, Big Data</li><li>Modules: CMM544 NLP, CMM538 Computer Vision, Data Warehousing</li></ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">BSc (Hons) Computer Science — First Class Honours</span><span class="cv-entry-date">2019 – 2022</span></div>
+            <div class="cv-entry-org">St. Paul's University, Kenya</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">Higher National Diploma — Computing & Informatics</span><span class="cv-entry-date">2011 – 2014</span></div>
+            <div class="cv-entry-org">Kenya National Youth Service Engineering Institute</div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Experience</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">IT Support Assistant</span><span class="cv-entry-date">Jan – Aug 2025</span></div>
+            <div class="cv-entry-org">East African School of Aviation | Nairobi, Kenya</div>
+            <ul><li>Supported enterprise IT systems across classrooms, labs, and admin offices</li><li>Assisted with system configuration, backups, updates, and data integrity checks</li><li>Troubleshot infrastructure and application issues supporting operational continuity</li></ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">IT Support & Operations Specialist</span><span class="cv-entry-date">Feb 2015 – Feb 2026</span></div>
+            <div class="cv-entry-org">Kenya Civil Aviation Authority (KCAA) | Nairobi, Kenya</div>
+            <ul><li>11 years supporting safety-critical ICT systems in regulated aviation environment</li><li>Managed EDMS platforms ensuring data integrity, version control, and compliance</li><li>Coordinated ICT project rollouts with cross-functional stakeholder management</li><li>Prepared operational reports and compliance documentation for senior management</li></ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">Freelance IT & Data Consultant</span><span class="cv-entry-date">2017 – 2024</span></div>
+            <div class="cv-entry-org">Self-Employed | Remote & Onsite</div>
+            <ul><li>Data management and IT solutions for business clients across multiple projects</li><li>Managed timelines, deliverables, and client communications independently</li></ul>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Projects</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">DetectIQ — Breast Cancer Detection</span><span class="cv-entry-date">2025–2026</span></div>
+            <div class="cv-entry-org">Live: breast-cancer-early-detection.streamlit.app</div>
+            <ul><li>ML dashboard classifying tumours as malignant/benign — endorsed by clinical officers</li></ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">MediPublish NLP — BioMedBERT Fine-tuning</span><span class="cv-entry-date">2026</span></div>
+            <ul><li>82% accuracy medical text classifier · Chi-Square validation · SHAP explainability</li></ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">Subsea Corrosion Detection</span><span class="cv-entry-date">2025–2026</span></div>
+            <ul><li>Computer vision pipeline for underwater structure inspection using CNN</li></ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header"><span class="cv-entry-title">Cardiac Ultrasound Classification</span><span class="cv-entry-date">2025–2026</span></div>
+            <ul><li>Binary classification of mitral valve state from cardiac ultrasound images</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button id="back-top">↑</button>
+<footer><p>© 2026 <span>Isaac Kuria</span> · Data Scientist & AI Researcher · Commonwealth Scholar · <a href="https://kuriaspace.github.io" style="color:var(--gold);">kuriaspace.github.io</a></p></footer>
+<script src="main.js"></script>
+<script>
+// Animate skill bars on scroll
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.cv-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.cv-panel').forEach(el => barObs.observe(el));
+</script>
+</body>
+</html>

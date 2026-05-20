@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Isaac Kuria</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+.page-hero { padding:9rem 3rem 5rem; background:var(--navy2); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(13,148,136,0.1) 0%,transparent 70%); border-radius:50%; }
+.page-hero-label { font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:0.5rem; animation:fadeUp 0.6s ease both; }
+.page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:600; color:var(--cream); animation:fadeUp 0.6s 0.1s ease both; }
+.page-hero h1 em { color:var(--teal); font-style:italic; }
+.bio-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:4rem; align-items:start; }
+.bio-text p { color:var(--gray-light); line-height:1.85; margin-bottom:1.1rem; font-size:0.97rem; }
+.bio-text strong { color:var(--cream); }
+.lang-tag { display:inline-block; background:rgba(13,148,136,0.1); border:1px solid rgba(13,148,136,0.25); color:var(--teal-light); border-radius:3px; padding:0.25rem 0.7rem; font-size:0.78rem; font-weight:600; margin-right:0.5rem; margin-top:0.5rem; }
+.cert-card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:1.2rem 1.4rem; display:flex; align-items:center; gap:0.8rem; transition:all var(--transition); }
+.cert-card:hover { border-color:var(--teal); transform:translateX(4px); }
+.cert-icon { font-size:1.3rem; flex-shrink:0; }
+.cert-name { font-size:0.88rem; font-weight:500; color:var(--cream); }
+.cert-issuer { font-size:0.75rem; color:var(--gray); }
+.vol-card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:1.2rem; transition:all var(--transition); }
+.vol-card:hover { border-color:var(--teal); }
+.vol-org { font-weight:600; color:var(--cream); font-size:0.9rem; margin-bottom:0.2rem; }
+.vol-role { color:var(--teal-light); font-size:0.8rem; margin-bottom:0.5rem; }
+.vol-desc { color:var(--gray); font-size:0.83rem; line-height:1.6; }
+@media(max-width:768px) { .bio-grid { grid-template-columns:1fr; gap:2rem; } }
+</style>
+</head>
+<body>
+
+<div class="page-transition"></div>
+<div id="progress-bar"></div>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <div class="nav-logo">Isaac <span>Kuria</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html" data-transition>Home</a></li>
+    <li><a href="about.html" data-transition class="active">About</a></li>
+    <li><a href="projects.html" data-transition>Projects</a></li>
+    <li><a href="blog.html" data-transition>Blog</a></li>
+    <li><a href="cv.html" data-transition>CV</a></li>
+    <li><a href="contact.html" data-transition class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" data-transition>Home</a>
+  <a href="about.html" data-transition>About</a>
+  <a href="projects.html" data-transition>Projects</a>
+  <a href="blog.html" data-transition>Blog</a>
+  <a href="cv.html" data-transition>CV</a>
+  <a href="contact.html" data-transition>Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-label">Who I Am</div>
+  <h1>Data Scientist.<br/><em>Human First.</em></h1>
+</div>
+
+<!-- BIO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="bio-grid">
+      <div class="bio-text reveal">
+        <p>I'm <strong>Isaac Kuria</strong>, a Commonwealth Scholar and data scientist with a passion for building technology that creates real-world impact — especially in healthcare, infrastructure, and community development.</p>
+        <p>Currently in the dissertation phase of my <strong>MSc in Data Science at Robert Gordon University, Aberdeen</strong>, my research spans machine learning, natural language processing, and computer vision. Before academia, I spent over a decade supporting safety-critical ICT systems at <strong>Kenya Civil Aviation Authority</strong>.</p>
+        <p>I believe <em style="color:var(--teal-light)">"Technology should serve people, not just impress them."</em> Every project I build starts with a real problem and ends with a measurable human benefit.</p>
+        <p>Beyond data science, I volunteer with the British Red Cross, Re-engage, and community sports programmes — driven by a conviction that data awareness and community engagement go hand in hand.</p>
+        <div style="margin-top:1rem;">
+          <span class="lang-tag">🌍 English — Fluent</span>
+          <span class="lang-tag">🌍 Kiswahili — Native</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="contact.html" class="btn btn-primary" data-transition style="margin-right:1rem;">Get In Touch</a>
+          <a href="IsaacKuria_cv.pdf" download class="btn btn-gold">⬇ Download CV</a>
+        </div>
+      </div>
+      <div class="reveal delay-1">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Technical Skills</p>
+        <div class="skills-grid" style="margin-bottom:2rem;">
+          <div class="skill-pill">Python & SQL</div>
+          <div class="skill-pill">Machine Learning</div>
+          <div class="skill-pill">NLP & Transformers</div>
+          <div class="skill-pill">Computer Vision</div>
+          <div class="skill-pill">Deep Learning</div>
+          <div class="skill-pill">BioMedBERT</div>
+          <div class="skill-pill">PyTorch</div>
+          <div class="skill-pill">Scikit-learn</div>
+          <div class="skill-pill">Data Engineering</div>
+          <div class="skill-pill">ETL Pipelines</div>
+          <div class="skill-pill">Hadoop & Spark</div>
+          <div class="skill-pill">MySQL & OLAP</div>
+          <div class="skill-pill">Streamlit</div>
+          <div class="skill-pill">SHAP / XAI</div>
+          <div class="skill-pill">ICT Systems</div>
+          <div class="skill-pill">EDMS & Reporting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & EXPERIENCE -->
+<section class="section" style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="grid-2">
+      <div>
+        <div class="section-label reveal">Education</div>
+        <div class="section-title reveal" style="font-size:1.8rem;">Academic <em>Journey</em></div>
+        <div class="divider reveal"></div>
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">2025 – 2026</div>
+            <div class="tl-role">MSc Data Science — Dissertation Phase</div>
+            <div class="tl-org">Robert Gordon University, Aberdeen 🏅 Commonwealth Scholar</div>
+            <div class="tl-desc">ML, NLP, Computer Vision, Data Engineering, Big Data. Modules: CMM544 NLP, CMM538 Computer Vision, Data Warehousing.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">2019 – 2022</div>
+            <div class="tl-role">BSc (Hons) Computer Science — First Class Honours</div>
+            <div class="tl-org">St. Paul's University, Kenya</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">2011 – 2014</div>
+            <div class="tl-role">Higher National Diploma — Computing & Informatics</div>
+            <div class="tl-org">Kenya National Youth Service Engineering Institute</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label reveal">Experience</div>
+        <div class="section-title reveal" style="font-size:1.8rem;">Professional <em>History</em></div>
+        <div class="divider reveal"></div>
+        <div class="timeline reveal delay-1">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Jan – Aug 2025</div>
+            <div class="tl-role">IT Support Assistant</div>
+            <div class="tl-org">East African School of Aviation | Nairobi</div>
+            <div class="tl-desc">Enterprise IT operations, system configuration, data integrity, and progress reporting.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Feb 2015 – Feb 2026</div>
+            <div class="tl-role">IT Support & Operations Specialist</div>
+            <div class="tl-org">Kenya Civil Aviation Authority (KCAA)</div>
+            <div class="tl-desc">11 years in safety-critical ICT: EDMS management, cross-functional project coordination, operational reporting in regulated aviation environment.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">2017 – 2024</div>
+            <div class="tl-role">Freelance IT & Data Consultant</div>
+            <div class="tl-org">Self-Employed</div>
+            <div class="tl-desc">Data management and IT solutions for business clients across Kenya and remotely.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label reveal">Credentials</div>
+    <div class="section-title reveal">Certifications & <em>Licences</em></div>
+    <div class="divider reveal"></div>
+    <div class="grid-2 reveal">
+      <div class="cert-card"><div class="cert-icon">📋</div><div><div class="cert-name">Diploma in Project Management</div><div class="cert-issuer">Alison</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔒</div><div><div class="cert-name">Introduction to IT & Cybersecurity</div><div class="cert-issuer">Alison</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">CISCO IT Security</div><div class="cert-issuer">Cisco Networking Academy</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Verified Python Coder</div><div class="cert-issuer">Deeplearning.ai</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🪪</div><div><div class="cert-name">Valid SIA Licence</div><div class="cert-issuer">Valid until 2029</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEERING -->
+<section class="section" style="background:var(--navy2);border-top:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label reveal">Community</div>
+    <div class="section-title reveal">Giving <em>Back</em></div>
+    <div class="divider reveal"></div>
+    <div class="grid-3 reveal">
+      <div class="vol-card"><div class="vol-org">British Red Cross</div><div class="vol-role">Retail Volunteer · Nov 2025 – Present</div><div class="vol-desc">Tracking stock data and supporting operational efficiency in charity retail.</div></div>
+      <div class="vol-card"><div class="vol-org">Re-engage</div><div class="vol-role">Call Companion · Sep 2025 – Present</div><div class="vol-desc">Monitoring participant engagement data to improve services for isolated older adults.</div></div>
+      <div class="vol-card"><div class="vol-org">GoGreen KEIM Shop (RGU)</div><div class="vol-role">Sustainability Assistant · Sep 2025 – Present</div><div class="vol-desc">Inventory tracking and data-informed insights on sustainable product engagement.</div></div>
+      <div class="vol-card"><div class="vol-org">Denis Law Legacy Trust</div><div class="vol-role">Streetsport Volunteer · Oct 2025 – Present</div><div class="vol-desc">Youth sports engagement, event logistics, and activity tracking.</div></div>
+      <div class="vol-card"><div class="vol-org">Kenya Red Cross Society</div><div class="vol-role">Community Volunteer · 2018 – 2025</div><div class="vol-desc">Community resilience, climate action, and programme documentation in Kenya.</div></div>
+    </div>
+  </div>
+</section>
+
+<button id="back-top">↑</button>
+<footer><p>© 2026 <span>Isaac Kuria</span> · Data Scientist & AI Researcher · Commonwealth Scholar · <a href="https://kuriaspace.github.io" style="color:var(--gold);">kuriaspace.github.io</a></p></footer>
+<script src="main.js"></script>
+</body>
+</html>

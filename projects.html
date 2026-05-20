@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Isaac Kuria</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+.page-hero { padding:9rem 3rem 5rem; background:var(--navy2); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(13,148,136,0.1) 0%,transparent 70%); border-radius:50%; }
+.page-hero-label { font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:0.5rem; animation:fadeUp 0.6s ease both; }
+.page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:600; color:var(--cream); animation:fadeUp 0.6s 0.1s ease both; }
+.page-hero h1 em { color:var(--teal); font-style:italic; }
+.filter-bar { display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.filter-btn { padding:0.45rem 1.1rem; border-radius:20px; border:1px solid var(--border); background:transparent; color:var(--gray-light); font-size:0.8rem; font-weight:500; cursor:pointer; transition:all var(--transition); }
+.filter-btn:hover, .filter-btn.active { background:var(--teal); border-color:var(--teal); color:var(--white); }
+.full-project { margin-bottom:4rem; padding-bottom:4rem; border-bottom:1px solid var(--border); }
+.full-project:last-child { border-bottom:none; }
+.fp-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+.fp-grid.reverse { direction:rtl; }
+.fp-grid.reverse > * { direction:ltr; }
+.fp-header { background:var(--navy2); border:1px solid var(--border); border-radius:12px; padding:2.5rem; }
+.fp-icon { font-size:3rem; margin-bottom:1rem; }
+.fp-title { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--cream); margin-bottom:0.5rem; }
+.fp-sub { color:var(--gray-light); font-size:0.9rem; }
+.fp-body { }
+.fp-body h3 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--cream); margin:1.2rem 0 0.5rem; }
+.fp-body p { color:var(--gray-light); font-size:0.9rem; line-height:1.8; margin-bottom:0.8rem; }
+.fp-body ul { list-style:none; margin-bottom:1rem; }
+.fp-body ul li { color:var(--gray-light); font-size:0.88rem; padding:0.3rem 0; padding-left:1.2rem; position:relative; }
+.fp-body ul li::before { content:'→'; position:absolute; left:0; color:var(--teal); }
+.metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.2rem 0; }
+.metric-box { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center; }
+.metric-box .num { font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--gold); }
+.metric-box .lbl { font-size:0.72rem; color:var(--gray-light); margin-top:0.2rem; }
+@media(max-width:768px) { .fp-grid, .fp-grid.reverse { grid-template-columns:1fr; direction:ltr; } }
+</style>
+</head>
+<body>
+<div class="page-transition"></div>
+<div id="progress-bar"></div>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <div class="nav-logo">Isaac <span>Kuria</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html" data-transition>Home</a></li>
+    <li><a href="about.html" data-transition>About</a></li>
+    <li><a href="projects.html" data-transition class="active">Projects</a></li>
+    <li><a href="blog.html" data-transition>Blog</a></li>
+    <li><a href="cv.html" data-transition>CV</a></li>
+    <li><a href="contact.html" data-transition class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" data-transition>Home</a>
+  <a href="about.html" data-transition>About</a>
+  <a href="projects.html" data-transition>Projects</a>
+  <a href="blog.html" data-transition>Blog</a>
+  <a href="cv.html" data-transition>CV</a>
+  <a href="contact.html" data-transition>Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-label">Portfolio</div>
+  <h1>Built with <em>purpose</em>.<br/>Driven by data.</h1>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+
+    <!-- PROJECT 1 -->
+    <div class="full-project reveal">
+      <div class="fp-grid">
+        <div class="fp-header">
+          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+            <span class="badge badge-gold">Featured</span>
+            <span class="badge badge-teal">● Live App</span>
+          </div>
+          <div class="fp-icon">🎗️</div>
+          <div class="fp-title">DetectIQ</div>
+          <div class="fp-sub">Breast Cancer Early Detection Dashboard</div>
+          <div class="metric-grid" style="margin-top:1.5rem;">
+            <div class="metric-box"><div class="num">99%</div><div class="lbl">Survival (early)</div></div>
+            <div class="metric-box"><div class="num">26%</div><div class="lbl">Survival (late)</div></div>
+            <div class="metric-box"><div class="num">Live</div><div class="lbl">Deployed App</div></div>
+          </div>
+          <div class="tags" style="margin-top:1rem;"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span><span class="tag">ML Classification</span><span class="tag">EDA</span><span class="tag">Healthcare AI</span></div>
+          <div style="margin-top:1.2rem;"><a href="https://breast-cancer-early-detection.streamlit.app/" target="_blank" class="btn btn-primary" style="font-size:0.85rem;">View Live App →</a></div>
+        </div>
+        <div class="fp-body">
+          <h3>Problem Statement</h3>
+          <p>In the UK, one woman is diagnosed with breast cancer every 9 minutes. Survival rate is 99% when caught early but drops to 26% when caught late. The gap between early and late detection is often access to fast, reliable diagnostic support.</p>
+          <h3>Solution</h3>
+          <p>DetectIQ is a machine learning dashboard that classifies tumours as Malignant or Benign using biopsy cell nucleus features. It is not designed to replace doctors, but to support faster, more informed clinical decisions.</p>
+          <h3>Key Contributions</h3>
+          <ul>
+            <li>Exploratory data analysis on the Wisconsin Breast Cancer Dataset</li>
+            <li>Feature engineering and selection of key cell nucleus measurements</li>
+            <li>Trained and evaluated multiple classification models (Logistic Regression, SVM, Random Forest)</li>
+            <li>Deployed as an interactive Streamlit web application</li>
+            <li>Endorsed by clinical officers and registered nurses on LinkedIn</li>
+          </ul>
+          <h3>Impact</h3>
+          <p>The project has attracted attention from NHS-tagged organisations on LinkedIn and received endorsement from healthcare professionals including a Registered Nurse and a Clinical Officer who noted it "makes diagnosis faster."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="full-project reveal">
+      <div class="fp-grid reverse">
+        <div class="fp-header">
+          <div class="fp-icon">🧠</div>
+          <div class="fp-title">MediPublish NLP</div>
+          <div class="fp-sub">Medical Text Classification with BioMedBERT</div>
+          <div class="metric-grid" style="margin-top:1.5rem;">
+            <div class="metric-box"><div class="num">82%</div><div class="lbl">Accuracy</div></div>
+            <div class="metric-box"><div class="num">5</div><div class="lbl">Disease Classes</div></div>
+            <div class="metric-box"><div class="num">2M+</div><div class="lbl">Words Processed</div></div>
+          </div>
+          <div class="tags" style="margin-top:1rem;"><span class="tag">NLP</span><span class="tag">BioMedBERT</span><span class="tag">PyTorch</span><span class="tag">SHAP</span><span class="tag">Transformers</span><span class="tag">Chi-Square</span></div>
+        </div>
+        <div class="fp-body">
+          <h3>Problem Statement</h3>
+          <p>MediPublish struggled to efficiently onboard and route medical publications to the correct clinical departments, with significant redundancy, class imbalance, and duplicate abstracts compounding the problem.</p>
+          <h3>Solution</h3>
+          <p>Fine-tuned Microsoft BioMedBERT — a transformer pretrained on biomedical text — to auto-classify medical abstracts across 5 disease departments: neoplasms, digestive, nervous system, cardiovascular, and general pathological conditions.</p>
+          <h3>Technical Highlights</h3>
+          <ul>
+            <li>Chi-Square test (χ²=247.43, p=2.33e-52) to identify duplicate clustering</li>
+            <li>Removed 4,061 duplicate rows after statistical validation</li>
+            <li>Stratified 80/20 validation split to prevent overfitting</li>
+            <li>Weighted cross-entropy loss to handle class imbalance</li>
+            <li>SHAP explainability showing "osteosarcoma" as top classifier for neoplasms</li>
+            <li>Weighted model achieves better recall on minority classes</li>
+          </ul>
+          <h3>Result</h3>
+          <p>The weighted model (80% accuracy) outperforms the standard model (82%) for minority class recall, making it better suited for routing niche publications to specialised departments reliably.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="full-project reveal">
+      <div class="fp-grid">
+        <div class="fp-header">
+          <div class="fp-icon">🌊</div>
+          <div class="fp-title">Subsea Corrosion Detection</div>
+          <div class="fp-sub">Computer Vision for Underwater Infrastructure</div>
+          <div class="tags" style="margin-top:1.5rem;"><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">CNN</span><span class="tag">OpenCV</span><span class="tag">NumPy</span><span class="tag">Python</span></div>
+        </div>
+        <div class="fp-body">
+          <h3>Problem Statement</h3>
+          <p>Corrosion on metallic surfaces and underwater structures is a major safety and maintenance challenge. Manual inspection is costly, dangerous, and inconsistent.</p>
+          <h3>Solution</h3>
+          <p>A computer vision pipeline that classifies images as corrosion-positive or corrosion-negative using progressively advanced models.</p>
+          <h3>Technical Approach</h3>
+          <ul>
+            <li>Images resized to 128×128 pixels and converted to NumPy arrays</li>
+            <li>Binary label assignment: 1 (corrosion) / 0 (no corrosion)</li>
+            <li>Progression from traditional ML to basic neural networks to advanced deep learning (CNN)</li>
+            <li>Image preprocessing, feature extraction, and flattening pipeline</li>
+            <li>Model evaluation using precision, recall, and F1-score</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="full-project reveal">
+      <div class="fp-grid reverse">
+        <div class="fp-header">
+          <div class="fp-icon">❤️</div>
+          <div class="fp-title">Cardiac Ultrasound Classification</div>
+          <div class="fp-sub">Mitral Valve State Detection</div>
+          <div class="tags" style="margin-top:1.5rem;"><span class="tag">Medical Imaging</span><span class="tag">Computer Vision</span><span class="tag">CNN</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span></div>
+        </div>
+        <div class="fp-body">
+          <h3>Problem Statement</h3>
+          <p>Accurate and rapid assessment of cardiac valve state from ultrasound imaging is critical in clinical settings but requires expert interpretation.</p>
+          <h3>Solution</h3>
+          <p>Binary classification of cardiac ultrasound images to detect whether the mitral valve is open or closed, using a published clinical dataset from Cervantes-Guzmán et al. (2023).</p>
+          <h3>Technical Approach</h3>
+          <ul>
+            <li>Images converted to grayscale, resized to 128×128 pixels</li>
+            <li>Progressive model complexity: traditional ML → neural networks → CNN</li>
+            <li>Normalisation and binarisation pipeline for cardiac imaging data</li>
+            <li>Model evaluation with clinically relevant metrics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<button id="back-top">↑</button>
+<footer><p>© 2026 <span>Isaac Kuria</span> · Data Scientist & AI Researcher · Commonwealth Scholar · <a href="https://kuriaspace.github.io" style="color:var(--gold);">kuriaspace.github.io</a></p></footer>
+<script src="main.js"></script>
+</body>
+</html>

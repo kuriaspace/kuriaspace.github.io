@@ -4,462 +4,157 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Isaac Kuria | Data Scientist & AI Researcher</title>
-<link rel="icon" href="logo2.png" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<meta name="description" content="Isaac Kuria — Commonwealth Scholar, MSc Data Science at RGU. Building ML, NLP & Computer Vision solutions for real-world impact."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
 <style>
-  :root {
-    --navy: #0f1e2e;
-    --teal: #0a7c6e;
-    --teal-light: #12a393;
-    --gold: #c9952a;
-    --cream: #f7f3ee;
-    --white: #ffffff;
-    --gray: #6b7280;
-    --light-gray: #e8e4df;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--navy); overflow-x:hidden; }
-
-  /* NAV */
-  nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(15,30,46,0.97); backdrop-filter:blur(10px); padding:1rem 3rem; display:flex; justify-content:space-between; align-items:center; }
-  .nav-logo { font-family:'DM Serif Display',serif; color:var(--cream); font-size:1.3rem; }
-  .nav-logo span { color:var(--gold); }
-  .nav-links { display:flex; gap:2rem; list-style:none; }
-  .nav-links a { color:rgba(247,243,238,0.7); text-decoration:none; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
-  .nav-links a:hover { color:var(--gold); }
-
-  /* HERO */
-  .hero { min-height:100vh; background:var(--navy); display:grid; grid-template-columns:1.2fr 0.8fr; align-items:center; padding:7rem 5rem 4rem; position:relative; overflow:hidden; }
-  .hero::before { content:''; position:absolute; top:-200px; right:-100px; width:600px; height:600px; background:radial-gradient(circle,rgba(10,124,110,0.15) 0%,transparent 70%); border-radius:50%; }
-  .hero::after { content:''; position:absolute; bottom:-150px; left:20%; width:500px; height:500px; background:radial-gradient(circle,rgba(201,149,42,0.07) 0%,transparent 70%); border-radius:50%; }
-  .hero-text { position:relative; z-index:2; }
-  .hero-tag { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(10,124,110,0.15); border:1px solid rgba(10,124,110,0.4); color:var(--teal-light); padding:0.4rem 1rem; border-radius:2rem; font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem; animation:fadeUp 0.6s ease both; }
-  .hero-tag::before { content:'●'; font-size:0.5rem; animation:pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(2.6rem,4.5vw,4rem); color:var(--cream); line-height:1.1; margin-bottom:1.2rem; animation:fadeUp 0.6s 0.1s ease both; }
-  .hero h1 em { color:var(--gold); font-style:italic; }
-  .hero-sub { color:rgba(247,243,238,0.6); font-size:1rem; line-height:1.75; max-width:500px; margin-bottom:1rem; animation:fadeUp 0.6s 0.2s ease both; }
-  .scholar-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,149,42,0.12); border:1px solid rgba(201,149,42,0.35); color:var(--gold); padding:0.45rem 1rem; border-radius:4px; font-size:0.8rem; font-weight:600; margin-bottom:2rem; animation:fadeUp 0.6s 0.25s ease both; }
-  .hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 0.6s 0.3s ease both; }
-  .btn { padding:0.85rem 1.8rem; border-radius:4px; font-size:0.88rem; font-weight:600; letter-spacing:0.04em; text-decoration:none; transition:all 0.25s; border:none; display:inline-block; cursor:pointer; }
-  .btn-primary { background:var(--teal); color:var(--white); }
-  .btn-primary:hover { background:var(--teal-light); transform:translateY(-2px); }
-  .btn-outline { background:transparent; color:var(--cream); border:1.5px solid rgba(247,243,238,0.25); }
-  .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
-  .btn-cv { background:var(--gold); color:var(--white); }
-  .btn-cv:hover { background:#b8841f; transform:translateY(-2px); }
-  .hero-right { position:relative; z-index:2; display:flex; flex-direction:column; gap:1.2rem; padding-left:3rem; animation:fadeUp 0.6s 0.4s ease both; }
-  .stat-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:1.3rem 1.6rem; transition:border-color 0.3s,transform 0.3s; }
-  .stat-card:hover { border-color:var(--teal); transform:translateX(5px); }
-  .stat-num { font-family:'DM Serif Display',serif; font-size:2.4rem; color:var(--gold); line-height:1; margin-bottom:0.3rem; }
-  .stat-label { color:rgba(247,243,238,0.55); font-size:0.82rem; line-height:1.4; }
-
-  /* SECTIONS */
-  section { padding:6rem 5rem; }
-  .section-label { font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal); margin-bottom:0.5rem; }
-  .section-title { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,2.8vw,2.5rem); color:var(--navy); margin-bottom:0.8rem; }
-  .section-title em { color:var(--teal); font-style:italic; }
-  .section-title-light { color:var(--cream); }
-  .section-line { width:48px; height:3px; background:var(--gold); margin-bottom:3rem; }
-
-  /* ABOUT */
-  .about { background:var(--white); }
-  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
-  .about-text p { color:var(--gray); line-height:1.85; margin-bottom:1.1rem; font-size:0.97rem; }
-  .about-text strong { color:var(--navy); }
-  .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; }
-  .skill-pill { background:var(--cream); border:1px solid var(--light-gray); border-radius:5px; padding:0.55rem 0.9rem; font-size:0.8rem; font-weight:500; color:var(--navy); display:flex; align-items:center; gap:0.5rem; }
-  .skill-pill::before { content:''; width:6px; height:6px; background:var(--teal); border-radius:50%; flex-shrink:0; }
-  .langs { margin-top:1.5rem; }
-  .lang-tag { display:inline-block; background:rgba(10,124,110,0.08); border:1px solid rgba(10,124,110,0.2); color:var(--teal); border-radius:3px; padding:0.25rem 0.7rem; font-size:0.78rem; font-weight:600; margin-right:0.5rem; margin-bottom:0.5rem; }
-
-  /* PROJECTS */
-  .projects { background:var(--cream); }
-  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.8rem; }
-  .project-card { background:var(--white); border-radius:10px; overflow:hidden; border:1px solid var(--light-gray); transition:transform 0.3s,box-shadow 0.3s; }
-  .project-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(15,30,46,0.1); }
-  .project-card.featured { grid-column:span 2; display:grid; grid-template-columns:1fr 1fr; }
-  .project-header { background:var(--navy); padding:2rem; position:relative; overflow:hidden; }
-  .project-header::after { content:''; position:absolute; top:-40px; right:-40px; width:130px; height:130px; background:rgba(10,124,110,0.18); border-radius:50%; }
-  .project-icon { font-size:2rem; margin-bottom:0.7rem; position:relative; z-index:1; }
-  .project-title { font-family:'DM Serif Display',serif; color:var(--cream); font-size:1.25rem; position:relative; z-index:1; line-height:1.3; }
-  .featured-badge { display:inline-block; background:var(--gold); color:var(--white); font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:2px; margin-bottom:0.5rem; position:relative; z-index:1; }
-  .live-badge { display:inline-block; background:rgba(10,124,110,0.8); color:var(--white); font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:2px; margin-bottom:0.5rem; margin-left:0.4rem; position:relative; z-index:1; }
-  .project-body { padding:1.6rem; }
-  .project-desc { color:var(--gray); font-size:0.9rem; line-height:1.75; margin-bottom:1.2rem; }
-  .project-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.4rem; }
-  .tag { background:rgba(10,124,110,0.07); color:var(--teal); border:1px solid rgba(10,124,110,0.18); border-radius:3px; padding:0.22rem 0.6rem; font-size:0.73rem; font-weight:600; letter-spacing:0.04em; }
-  .project-link { color:var(--teal); text-decoration:none; font-weight:600; font-size:0.86rem; display:inline-flex; align-items:center; gap:0.4rem; transition:gap 0.2s,color 0.2s; }
-  .project-link:hover { color:var(--gold); gap:0.7rem; }
-  .project-metric { display:flex; gap:1.5rem; margin-bottom:1.2rem; }
-  .metric { text-align:center; }
-  .metric-num { font-family:'DM Serif Display',serif; font-size:1.6rem; color:var(--gold); }
-  .metric-label { font-size:0.72rem; color:var(--gray); }
-
-  /* EXPERIENCE */
-  .experience { background:var(--white); }
-  .exp-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
-  .timeline { position:relative; }
-  .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:2px; background:var(--light-gray); }
-  .timeline-item { padding-left:2.2rem; margin-bottom:2.5rem; position:relative; }
-  .timeline-dot { position:absolute; left:-6px; top:6px; width:14px; height:14px; background:var(--teal); border-radius:50%; border:3px solid var(--white); box-shadow:0 0 0 2px var(--teal); }
-  .timeline-date { font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem; }
-  .timeline-role { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:0.2rem; }
-  .timeline-org { color:var(--gray); font-size:0.85rem; margin-bottom:0.6rem; }
-  .timeline-desc { color:var(--gray); font-size:0.88rem; line-height:1.7; }
-
-  /* OPPORTUNITIES */
-  .opportunities { background:var(--navy); }
-  .opp-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
-  .opp-card { border:1px solid rgba(255,255,255,0.09); border-radius:8px; padding:1.8rem 1.4rem; text-align:center; transition:all 0.3s; background:rgba(255,255,255,0.03); }
-  .opp-card:hover { border-color:var(--teal); background:rgba(10,124,110,0.1); transform:translateY(-4px); }
-  .opp-icon { font-size:1.8rem; margin-bottom:0.8rem; }
-  .opp-title { color:var(--cream); font-weight:600; font-size:0.95rem; margin-bottom:0.4rem; }
-  .opp-desc { color:rgba(247,243,238,0.45); font-size:0.8rem; line-height:1.6; }
-
-  /* CONTACT */
-  .contact { background:var(--cream); }
-  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
-  .contact-links { display:flex; flex-direction:column; gap:0.9rem; }
-  .contact-link { display:flex; align-items:center; gap:1rem; text-decoration:none; color:var(--navy); padding:0.9rem 1.1rem; border-radius:8px; border:1px solid var(--light-gray); background:var(--white); transition:all 0.25s; font-size:0.9rem; }
-  .contact-link:hover { border-color:var(--teal); color:var(--teal); transform:translateX(4px); }
-  .contact-link-icon { font-size:1.1rem; flex-shrink:0; }
-  .contact-link-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray); display:block; }
-  .contact-link-value { font-weight:500; font-size:0.88rem; }
-  .contact-box { background:var(--white); border-radius:10px; padding:2.2rem; border:1px solid var(--light-gray); }
-  .contact-box h3 { font-family:'DM Serif Display',serif; font-size:1.35rem; margin-bottom:0.8rem; color:var(--navy); }
-  .contact-box p { color:var(--gray); font-size:0.9rem; line-height:1.75; margin-bottom:1rem; }
-  .avail { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(10,124,110,0.08); border:1px solid rgba(10,124,110,0.2); color:var(--teal); padding:0.5rem 1rem; border-radius:4px; font-size:0.82rem; font-weight:600; }
-  .avail::before { content:'●'; font-size:0.5rem; animation:pulse 2s infinite; }
-
-  footer { background:var(--navy); color:rgba(247,243,238,0.35); text-align:center; padding:2rem; font-size:0.8rem; }
-  footer span { color:var(--gold); }
-
-  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-  .fade-in { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease,transform 0.6s ease; }
-  .fade-in.visible { opacity:1; transform:translateY(0); }
-
-  @media(max-width:960px) {
-    .hero { grid-template-columns:1fr; padding:6rem 2rem 3rem; }
-    .hero-right { padding-left:0; padding-top:2rem; flex-direction:row; flex-wrap:wrap; }
-    section { padding:4rem 2rem; }
-    .about-grid,.contact-grid,.exp-grid { grid-template-columns:1fr; gap:2rem; }
-    .opp-grid { grid-template-columns:1fr 1fr; }
-    .project-card.featured { grid-column:span 1; display:block; }
-    nav { padding:1rem 1.5rem; }
-    .nav-links { gap:1rem; }
-  }
+.hero-scroll { position:absolute; bottom:2.5rem; left:3rem; display:flex; align-items:center; gap:0.8rem; color:var(--gray); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; animation:fadeUp 1s 0.8s ease both; z-index:1; }
+.scroll-line { width:40px; height:1px; background:var(--gray); }
+.featured-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:1.5rem; }
+.featured-big .project-card-header { min-height:200px; display:flex; flex-direction:column; justify-content:flex-end; }
+.opp-card { border:1px solid var(--border); border-radius:10px; padding:1.8rem; text-align:center; transition:all var(--transition); background:var(--card-bg); }
+.opp-card:hover { border-color:var(--teal); transform:translateY(-4px); background:rgba(13,148,136,0.06); }
+.opp-icon { font-size:1.8rem; margin-bottom:0.8rem; }
+.opp-title { font-weight:600; font-size:0.95rem; margin-bottom:0.4rem; color:var(--cream); }
+.opp-desc { color:var(--gray); font-size:0.82rem; line-height:1.6; }
+@media(max-width:900px) { .featured-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 
+<div class="page-transition"></div>
+<div id="progress-bar"></div>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
 <nav>
   <div class="nav-logo">Isaac <span>Kuria</span></div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#opportunities">Opportunities</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html" data-transition class="active">Home</a></li>
+    <li><a href="about.html" data-transition>About</a></li>
+    <li><a href="projects.html" data-transition>Projects</a></li>
+    <li><a href="blog.html" data-transition>Blog</a></li>
+    <li><a href="cv.html" data-transition>CV</a></li>
+    <li><a href="contact.html" data-transition class="nav-cta">Contact</a></li>
   </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
 </nav>
+
+<div class="mobile-menu">
+  <a href="index.html" data-transition>Home</a>
+  <a href="about.html" data-transition>About</a>
+  <a href="projects.html" data-transition>Projects</a>
+  <a href="blog.html" data-transition>Blog</a>
+  <a href="cv.html" data-transition>CV</a>
+  <a href="contact.html" data-transition>Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <div class="hero-tag">Open to Work · Placement · Collaboration · Research</div>
-    <h1>Data Science<br/>built for <em>real-world</em><br/>impact.</h1>
-    <p class="hero-sub">MSc Data Science researcher at Robert Gordon University. I build ML, NLP, and computer vision solutions that solve genuine human problems — from cancer detection to underwater infrastructure inspection.</p>
-    <div class="scholar-badge">🏅 Commonwealth Scholar — Robert Gordon University</div>
-    <div class="hero-buttons">
-      <a href="#projects" class="btn btn-primary">View My Projects</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
-      <a href="IsaacKuria_cv.pdf" download="IsaacKuria_cv.pdf" class="btn btn-cv">⬇ Download CV</a>
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><div class="dot-pulse"></div>Open to Work · Placement · Collaboration</div>
+    <h1>
+      <span class="line">Building <em>intelligent</em></span>
+      <span class="line">solutions for a</span>
+      <span class="line"><span class="gold">better world.</span></span>
+    </h1>
+    <p class="hero-sub">I'm <strong style="color:var(--cream)">Isaac Kuria</strong> — <span id="typed" style="color:var(--teal-light);font-weight:600"></span>. I build ML, NLP, and computer vision tools that solve real human problems.</p>
+    <div class="scholar">🏅 Commonwealth Scholar — Robert Gordon University, Aberdeen</div>
+    <div class="hero-btns">
+      <a href="projects.html" class="btn btn-primary" data-transition>View Projects →</a>
+      <a href="about.html" class="btn btn-ghost" data-transition>About Me</a>
+      <a href="IsaacKuria_cv.pdf" download class="btn btn-gold">⬇ Download CV</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" data-target="4" data-suffix="">0</div><div class="stat-label">AI/ML Projects</div></div>
+      <div class="stat"><div class="stat-num" data-target="11" data-suffix="+">0</div><div class="stat-label">Years ICT Experience</div></div>
+      <div class="stat"><div class="stat-num" data-target="82" data-suffix="%">0</div><div class="stat-label">BioMedBERT Accuracy</div></div>
+      <div class="stat"><div class="stat-num" data-target="99" data-suffix="%">0</div><div class="stat-label">Cancer Survival (early detect)</div></div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="stat-card">
-      <div class="stat-num">4</div>
-      <div class="stat-label">ML & AI projects — healthcare, NLP, computer vision, deep learning</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">11+</div>
-      <div class="stat-label">Years in ICT operations in safety-critical environments</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">82%</div>
-      <div class="stat-label">Accuracy achieved fine-tuning BioMedBERT for medical text classification</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">99%</div>
-      <div class="stat-label">Breast cancer survival rate when caught early — the problem DetectIQ tackles</div>
-    </div>
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="section-label">About Me</div>
-  <div class="section-title">Technology should <em>serve people</em>, not just impress them.</div>
-  <div class="section-line"></div>
-  <div class="about-grid fade-in">
-    <div class="about-text">
-      <p>I'm <strong>Isaac Kuria</strong>, a Commonwealth Scholar and data scientist with over a decade of experience in ICT systems at Kenya Civil Aviation Authority and the East African School of Aviation.</p>
-      <p>Currently in the dissertation phase of my <strong>MSc in Data Science at Robert Gordon University, Aberdeen</strong>, my research spans machine learning, natural language processing, and computer vision — applied to healthcare, industrial inspection, and operational intelligence.</p>
-      <p>My academic projects include a <strong>fine-tuned BioMedBERT model</strong> for medical text routing, <strong>computer vision systems</strong> for subsea corrosion and cardiac ultrasound analysis, and a <strong>live breast cancer detection app</strong> Received feedback from healthcare professionals.</p>
-      <p>I am actively seeking <strong>employment, research placement, or collaboration</strong> opportunities in data science, AI, and healthcare technology.</p>
-      <div class="langs">
-        <span class="lang-tag">🌍 English — Fluent</span>
-        <span class="lang-tag">🌍 Kiswahili — Native</span>
-      </div>
-    </div>
-    <div>
-      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Technical Skills</p>
-      <div class="skills-grid">
-        <div class="skill-pill">Python & SQL</div>
-        <div class="skill-pill">Machine Learning</div>
-        <div class="skill-pill">NLP & Transformers</div>
-        <div class="skill-pill">Computer Vision</div>
-        <div class="skill-pill">Deep Learning</div>
-        <div class="skill-pill">BioMedBERT / BERT</div>
-        <div class="skill-pill">Data Engineering</div>
-        <div class="skill-pill">ETL Pipelines</div>
-        <div class="skill-pill">Hadoop & Spark</div>
-        <div class="skill-pill">EDA & Modelling</div>
-        <div class="skill-pill">Streamlit Apps</div>
-        <div class="skill-pill">SHAP / Explainability</div>
-        <div class="skill-pill">ICT Systems Admin</div>
-        <div class="skill-pill">EDMS & Reporting</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-  <div class="section-label">Portfolio</div>
-  <div class="section-title">Projects built with <em>purpose</em>.</div>
-  <div class="section-line"></div>
-  <div class="projects-grid fade-in">
-
-    <!-- FEATURED: DetectIQ -->
-    <div class="project-card project-card--featured">
-      <div class="project-header">
-
-        <div class="project-badges">
-          <div class="featured-badge">Featured</div>
-          <div class="live-badge">● Live App</div>
+<!-- FEATURED PROJECTS -->
+<section class="section" style="background:var(--navy2); border-top:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label reveal">Featured Work</div>
+    <div class="section-title reveal">Projects built with <em>purpose</em>.</div>
+    <div class="divider reveal"></div>
+    <div class="featured-grid">
+      <div class="card featured-big reveal delay-1">
+        <div class="project-card-header" style="min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div class="badge badge-gold">Featured</div>
+          <div class="badge badge-teal" style="display:inline-block;width:fit-content;">● Live</div>
+          <div class="project-icon">🎗️</div>
+          <div class="project-title">DetectIQ — Breast Cancer Early Detection</div>
         </div>
-
-        <div class="project-icon">🎗️</div>
-        <div class="project-title">CellSight AI — Breast Cancer Early Detection</div>
-      </div>
-
-      <div class="project-body">
-        <div class="project-metric">
-          <div class="metric">
-            <div class="metric-num">99%</div>
-            <div class="metric-label">Survival if caught early</div>
+        <div class="project-body">
+          <div class="metric-row">
+            <div class="metric"><div class="metric-num">99%</div><div class="metric-label">Survival if early</div></div>
+            <div class="metric"><div class="metric-num">26%</div><div class="metric-label">Survival if late</div></div>
           </div>
-          <div class="metric">
-            <div class="metric-num">26%</div>
-            <div class="metric-label">Survival if caught late</div>
-          </div>
+          <p class="project-desc">ML dashboard classifying tumours as malignant or benign. Endorsed by clinical officers on LinkedIn.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span><span class="tag">Healthcare AI</span></div>
+          <a href="https://breast-cancer-early-detection.streamlit.app/" target="_blank" class="project-link">View Live App →</a>
         </div>
-
-        <p class="project-desc">
-          A machine learning dashboard classifying tumours as Malignant or Benign using biopsy data. Built to explore how data science can support faster, more informed clinical decisions. Received remarks from clinical officers and registered nurses on LinkedIn.
-        </p>
-
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span><span class="tag">ML Classification</span><span class="tag">Healthcare AI</span><span class="tag">EDA</span>
-        </div>
-
-        <a href="https://breast-cancer-early-detection.streamlit.app/" target="_blank" class="project-link">
-          View Live App →
-        </a>
       </div>
-    </div>
-
-    <!-- NLP -->
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-icon">🧠</div>
-        <div class="project-title">MediPublish NLP — Medical Text Classification</div>
-      </div>
-      <div class="project-body">
-        <div class="project-metric">
-          <div class="metric"><div class="metric-num">82%</div><div class="metric-label">Model accuracy</div></div>
-          <div class="metric"><div class="metric-num">5</div><div class="metric-label">Disease classes</div></div>
+      <div class="card reveal delay-2">
+        <div class="project-card-header">
+          <div class="project-icon">🧠</div>
+          <div class="project-title">MediPublish NLP — BioMedBERT</div>
         </div>
-        <p class="project-desc">Fine-tuned Microsoft BioMedBERT on medical abstracts to auto-route publications to the correct clinical department. Used Chi-Square testing, class imbalance weighting, SHAP explainability, and stratified validation.</p>
-        <div class="project-tags">
-          <span class="tag">NLP</span><span class="tag">BioMedBERT</span><span class="tag">Transformers</span><span class="tag">SHAP</span><span class="tag">PyTorch</span><span class="tag">Healthcare AI</span>
+        <div class="project-body">
+          <div class="metric-row"><div class="metric"><div class="metric-num">82%</div><div class="metric-label">Accuracy</div></div></div>
+          <p class="project-desc">Fine-tuned BioMedBERT for medical text classification across 5 disease departments.</p>
+          <div class="tags"><span class="tag">NLP</span><span class="tag">BERT</span><span class="tag">SHAP</span></div>
+          <a href="projects.html" class="project-link" data-transition>Learn More →</a>
         </div>
-        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="project-link">View on LinkedIn →</a>
       </div>
-    </div>
-
-    <!-- SUBSEA -->
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-icon">🌊</div>
-        <div class="project-title">Subsea Corrosion Detection — Computer Vision</div>
-      </div>
-      <div class="project-body">
-        <p class="project-desc">Computer vision pipeline to detect corrosion on metallic and underwater structures. Progressed from traditional ML through basic neural networks to advanced deep learning, using image preprocessing, feature extraction, and binary classification on 128×128 pixel images.</p>
-        <div class="project-tags">
-          <span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">OpenCV</span><span class="tag">CNN</span><span class="tag">NumPy</span><span class="tag">Python</span>
+      <div class="card reveal delay-3">
+        <div class="project-card-header">
+          <div class="project-icon">🌊</div>
+          <div class="project-title">Subsea Corrosion Detection</div>
         </div>
-        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="project-link">View on LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- CARDIAC -->
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-icon">❤️</div>
-        <div class="project-title">Cardiac Ultrasound — Mitral Valve Classification</div>
-      </div>
-      <div class="project-body">
-        <p class="project-desc">Binary classification of cardiac ultrasound images to detect whether the mitral valve is open or closed. Used grayscale preprocessing, progressive model complexity from traditional ML to deep learning, trained on a published clinical dataset.</p>
-        <div class="project-tags">
-          <span class="tag">Medical Imaging</span><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">CNN</span><span class="tag">Scikit-learn</span>
-        </div>
-        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="project-link">View on LinkedIn →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <div class="section-label">Experience & Education</div>
-  <div class="section-title">A career built on <em>reliability</em>.</div>
-  <div class="section-line"></div>
-  <div class="exp-grid fade-in">
-    <div>
-      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;">Professional</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jan – Aug 2025</div>
-          <div class="timeline-role">IT Support Assistant</div>
-          <div class="timeline-org">East African School of Aviation | Nairobi</div>
-          <div class="timeline-desc">Enterprise IT operations, system configuration, data integrity, and progress reporting in an aviation training institution.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Feb 2015 – Dec 2024</div>
-          <div class="timeline-role">IT Support & Operations Specialist</div>
-          <div class="timeline-org">Kenya Civil Aviation Authority (KCAA)</div>
-          <div class="timeline-desc">11 years supporting safety-critical ICT systems, EDMS management, cross-functional project coordination, and operational reporting in a regulated aviation environment.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2017 – Present</div>
-          <div class="timeline-role">Freelance IT & Data Consultant</div>
-          <div class="timeline-org">Self-Employed</div>
-          <div class="timeline-desc">Data management and IT solutions for business clients, managing timelines and technical documentation independently.</div>
+        <div class="project-body">
+          <p class="project-desc">Computer vision pipeline detecting corrosion on underwater structures using deep learning.</p>
+          <div class="tags"><span class="tag">CV</span><span class="tag">CNN</span><span class="tag">OpenCV</span></div>
+          <a href="projects.html" class="project-link" data-transition>Learn More →</a>
         </div>
       </div>
     </div>
-    <div>
-      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;">Education & Certifications</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2025 – 2026</div>
-          <div class="timeline-role">MSc Data Science (Dissertation Phase)</div>
-          <div class="timeline-org">Robert Gordon University, Aberdeen 🏅 Commonwealth Scholar</div>
-          <div class="timeline-desc">Machine learning, NLP, computer vision, data engineering, big data, and deep learning. Modules include CMM544 NLP, CMM538 Computer Vision, and Data Engineering.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2019 – 2022</div>
-          <div class="timeline-role">BSc (Hons) Computer Science — First Class Honours</div>
-          <div class="timeline-org">St. Paul's University, Kenya</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Certifications</div>
-          <div class="timeline-role">Professional Qualifications</div>
-          <div class="timeline-org"></div>
-          <div class="timeline-desc">Diploma in Project Management · Introduction to IT & Cybersecurity · CISCO IT Security · Verified Python Coder (Deeplearning.ai) · SIA License (2029)</div>
-        </div>
-      </div>
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="projects.html" class="btn btn-ghost" data-transition>View All Projects →</a>
     </div>
   </div>
 </section>
 
-<!-- OPPORTUNITIES -->
-<section class="opportunities" id="opportunities">
-  <div class="section-label">What I'm Looking For</div>
-  <div class="section-title section-title-light">Open to the right <em>opportunity</em>.</div>
-  <div class="section-line"></div>
-  <div class="opp-grid fade-in">
-    <div class="opp-card">
-      <div class="opp-icon">💼</div>
-      <div class="opp-title">Employment</div>
-      <div class="opp-desc">Data scientist, ML engineer, or data analyst roles where I can deliver immediate impact.</div>
+<!-- OPEN TO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label reveal">Opportunities</div>
+    <div class="section-title reveal">Open to the right <em>opportunity</em>.</div>
+    <div class="divider reveal"></div>
+    <div class="grid-4 reveal">
+      <div class="opp-card"><div class="opp-icon">💼</div><div class="opp-title">Employment</div><div class="opp-desc">Data scientist, ML engineer, or analyst roles delivering immediate impact.</div></div>
+      <div class="opp-card"><div class="opp-icon">🎓</div><div class="opp-title">Research Placement</div><div class="opp-desc">Yearlong or short-term placements in data science or healthcare AI.</div></div>
+      <div class="opp-card"><div class="opp-icon">🤝</div><div class="opp-title">Collaboration</div><div class="opp-desc">NHS, NGOs, startups, or universities on data-for-good projects.</div></div>
+      <div class="opp-card"><div class="opp-icon">🌍</div><div class="opp-title">Consulting</div><div class="opp-desc">NLP, data engineering, or operational analytics engagements.</div></div>
     </div>
-    <div class="opp-card">
-      <div class="opp-icon">🎓</div>
-      <div class="opp-title">Research Placement</div>
-      <div class="opp-desc">Yearlong or short-term placements in data science, NLP, or healthcare AI research.</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-icon">🤝</div>
-      <div class="opp-title">Collaboration</div>
-      <div class="opp-desc">Open to partnering with NHS, NGOs, startups, or universities on data-for-good projects.</div>
-    </div>
-    <div class="opp-card">
-      <div class="opp-icon">🌍</div>
-      <div class="opp-title">Consulting</div>
-      <div class="opp-desc">Short-term data engineering, NLP, or operational analytics consulting engagements.</div>
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="contact.html" class="btn btn-primary" data-transition>Get In Touch →</a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="section-label">Contact</div>
-  <div class="section-title">Let's build something <em>meaningful</em>.</div>
-  <div class="section-line"></div>
-  <div class="contact-grid fade-in">
-    <div>
-      <p style="color:var(--gray);line-height:1.8;margin-bottom:2rem;font-size:0.97rem;">Whether you're looking for a data scientist, ML researcher, or reliable operations professional — I'd love to hear from you. I respond to all genuine opportunities.</p>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="contact-link">
-          <span class="contact-link-icon">🔗</span>
-          <div><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">linkedin.com/in/kuriaspace</span></div>
-        </a>
-        <a href="https://kuriaspace.github.io" target="_blank" class="contact-link">
-          <span class="contact-link-icon">🌐</span>
-          <div><span class="contact-link-label">Portfolio</span><span class="contact-link-value">kuriaspace.github.io</span></div>
-        </a>
-      </div>
-    </div>
-    <div class="contact-box">
-      <h3>Ready to collaborate?</h3>
-      <p>I am actively seeking employment, research placement, and collaboration opportunities in data science, machine learning, NLP, and healthcare AI. Available for interviews, project demos, and discussions at short notice.</p>
-      <p style="margin-bottom:1.2rem;"><strong style="color:var(--teal);">Industries of interest:</strong> Healthcare & NHS, Aviation & Infrastructure, Tech & Startups, NGOs & International Development.</p>
-      <div class="avail">● Immediately Available</div>
-    </div>
-  </div>
-</section>
+<button id="back-top">↑</button>
 
 <footer>
-  <p>© 2026 <span>Isaac Kuria</span> · Data Scientist & AI Researcher · Commonwealth Scholar · <a href="https://kuriaspace.github.io" style="color:var(--gold);text-decoration:none;">kuriaspace.github.io</a></p>
+  <p>© 2026 <span>Isaac Kuria</span> · Data Scientist & AI Researcher · Commonwealth Scholar · <a href="https://kuriaspace.github.io" style="color:var(--gold);">kuriaspace.github.io</a></p>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+<script src="main.js"></script>
 </body>
 </html>
