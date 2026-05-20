@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Isaac Kuria | Data Scientist & ICT Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0f1e2e;
+    --teal: #0a7c6e;
+    --teal-light: #12a393;
+    --gold: #c9952a;
+    --cream: #f7f3ee;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #e8e4df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,30,46,0.96);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    color: var(--cream); font-size: 1.4rem; letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(247,243,238,0.75); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 5rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(10,124,110,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -100px; left: 30%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,149,42,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(10,124,110,0.2);
+    border: 1px solid var(--teal);
+    color: var(--teal-light);
+    padding: 0.4rem 1rem; border-radius: 2rem;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    color: var(--cream); line-height: 1.1;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    color: rgba(247,243,238,0.65);
+    font-size: 1.05rem; line-height: 1.7; max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-buttons {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn {
+    padding: 0.85rem 1.8rem; border-radius: 4px;
+    font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em;
+    text-decoration: none; transition: all 0.25s; cursor: pointer;
+    border: none; display: inline-block;
+  }
+  .btn-primary { background: var(--teal); color: var(--white); }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    border: 1.5px solid rgba(247,243,238,0.3);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    padding-left: 4rem; border-left: 1px solid rgba(247,243,238,0.1);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 1.4rem 1.8rem;
+    backdrop-filter: blur(4px);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .stat-card:hover { border-color: var(--teal); transform: translateX(6px); }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem; color: var(--gold); line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label { color: rgba(247,243,238,0.6); font-size: 0.85rem; }
+
+  /* SECTIONS */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--teal);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--navy); margin-bottom: 1rem;
+  }
+  .section-title em { color: var(--teal); font-style: italic; }
+  .section-line {
+    width: 50px; height: 3px;
+    background: var(--gold); margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p {
+    color: var(--gray); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem;
+  }
+  .about-text strong { color: var(--navy); }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .skill-pill {
+    background: var(--cream); border: 1px solid var(--light-gray);
+    border-radius: 6px; padding: 0.6rem 1rem;
+    font-size: 0.82rem; font-weight: 500; color: var(--navy);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .skill-pill::before {
+    content: ''; width: 7px; height: 7px;
+    background: var(--teal); border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* PROJECTS */
+  .projects { background: var(--cream); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+  .project-card {
+    background: var(--white); border-radius: 10px;
+    overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--light-gray);
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(15,30,46,0.12); }
+  .project-header {
+    background: var(--navy); padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .project-header::after {
+    content: ''; position: absolute;
+    top: -40px; right: -40px; width: 120px; height: 120px;
+    background: rgba(10,124,110,0.2); border-radius: 50%;
+  }
+  .project-icon {
+    font-size: 2.2rem; margin-bottom: 0.8rem; position: relative; z-index: 1;
+  }
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    color: var(--cream); font-size: 1.3rem;
+    position: relative; z-index: 1;
+  }
+  .project-body { padding: 1.8rem; }
+  .project-desc { color: var(--gray); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.2rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .tag {
+    background: rgba(10,124,110,0.08);
+    color: var(--teal); border: 1px solid rgba(10,124,110,0.2);
+    border-radius: 3px; padding: 0.25rem 0.65rem;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em;
+  }
+  .project-link {
+    color: var(--teal); text-decoration: none; font-weight: 600;
+    font-size: 0.88rem; display: flex; align-items: center; gap: 0.4rem;
+    transition: gap 0.2s, color 0.2s;
+  }
+  .project-link:hover { color: var(--gold); gap: 0.7rem; }
+  .featured-badge {
+    display: inline-block; background: var(--gold);
+    color: var(--white); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; border-radius: 2px;
+    margin-bottom: 0.5rem; position: relative; z-index: 1;
+  }
+
+  /* EXPERIENCE */
+  .experience { background: var(--white); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 0; top: 8px; bottom: 0; width: 2px;
+    background: var(--light-gray);
+  }
+  .timeline-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; }
+  .timeline-dot {
+    position: absolute; left: -6px; top: 6px;
+    width: 14px; height: 14px; background: var(--teal);
+    border-radius: 50%; border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--teal);
+  }
+  .timeline-date {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem;
+  }
+  .timeline-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem; color: var(--navy); margin-bottom: 0.2rem;
+  }
+  .timeline-org { color: var(--gray); font-size: 0.88rem; margin-bottom: 0.8rem; }
+  .timeline-desc { color: var(--gray); font-size: 0.92rem; line-height: 1.7; }
+
+  /* OPPORTUNITIES */
+  .opportunities { background: var(--navy); }
+  .opportunities .section-title { color: var(--cream); }
+  .opportunities .section-label { color: var(--teal-light); }
+  .opp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .opp-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; padding: 2rem 1.5rem;
+    text-align: center; transition: all 0.3s;
+    background: rgba(255,255,255,0.03);
+  }
+  .opp-card:hover {
+    border-color: var(--teal);
+    background: rgba(10,124,110,0.1);
+    transform: translateY(-4px);
+  }
+  .opp-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .opp-title { color: var(--cream); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
+  .opp-desc { color: rgba(247,243,238,0.5); font-size: 0.82rem; line-height: 1.6; }
+
+  /* CONTACT */
+  .contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-text p { color: var(--gray); line-height: 1.8; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none; color: var(--navy);
+    padding: 1rem 1.2rem; border-radius: 8px;
+    border: 1px solid var(--light-gray); background: var(--white);
+    transition: all 0.25s; font-size: 0.92rem;
+  }
+  .contact-link:hover { border-color: var(--teal); color: var(--teal); transform: translateX(4px); }
+  .contact-link-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .contact-link-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); display: block; }
+  .contact-link-value { font-weight: 500; }
+  .contact-form-note {
+    background: var(--white); border-radius: 10px;
+    padding: 2.5rem; border: 1px solid var(--light-gray);
+  }
+  .contact-form-note h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy);
+  }
+  .contact-form-note p { color: var(--gray); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: rgba(247,243,238,0.4);
+    text-align: center; padding: 2rem;
+    font-size: 0.82rem;
+  }
+  footer span { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 6rem 2rem 3rem; }
+    .hero-stats { padding-left: 0; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; flex-direction: row; flex-wrap: wrap; }
+    section { padding: 4rem 2rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Isaac <span>Kuria</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#opportunities">Opportunities</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Open to Work · Placement · Collaboration</div>
+    <h1>Data Science<br/>meets <em>real-world</em><br/>impact.</h1>
+    <p class="hero-sub">
+      MSc Data Science researcher at Robert Gordon University, building ML tools
+      that solve genuine human problems — from healthcare diagnostics to
+      operational intelligence.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-number">11+</div>
+      <div class="stat-label">Years in ICT & Operations</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">99%</div>
+      <div class="stat-label">Breast cancer survival rate when caught early — the problem DetectIQ tackles</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">BSc + MSc</div>
+      <div class="stat-label">Computer Science & Data Science (RGU)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">About Me</div>
+  <div class="section-title">Technology should <em>serve people</em>,<br/>not just impress them.</div>
+  <div class="section-line"></div>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>I'm <strong>Isaac Kuria</strong>, a data scientist and ICT professional with over a decade of experience supporting safety-critical systems at Kenya Civil Aviation Authority and the East African School of Aviation.</p>
+      <p>Currently in the dissertation phase of my <strong>MSc in Data Science at Robert Gordon University, Aberdeen</strong>, I specialise in machine learning, computer vision, and turning raw data into decisions that matter.</p>
+      <p>My work sits at the intersection of <strong>technical rigour and human impact</strong> — whether that's building ML models to aid cancer detection, managing enterprise data pipelines, or supporting large-scale operational environments.</p>
+      <p>I am actively seeking <strong>employment, research placement, or collaboration opportunities</strong> where I can contribute data-driven solutions to meaningful challenges.</p>
+    </div>
+    <div>
+      <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Core Skills</p>
+      <div class="skills-grid">
+        <div class="skill-pill">Python & SQL</div>
+        <div class="skill-pill">Machine Learning</div>
+        <div class="skill-pill">Computer Vision</div>
+        <div class="skill-pill">Data Engineering</div>
+        <div class="skill-pill">ETL Pipelines</div>
+        <div class="skill-pill">Hadoop & Spark</div>
+        <div class="skill-pill">EDA & Modelling</div>
+        <div class="skill-pill">Streamlit Apps</div>
+        <div class="skill-pill">ICT Systems Admin</div>
+        <div class="skill-pill">EDMS & Reporting</div>
+        <div class="skill-pill">Project Coordination</div>
+        <div class="skill-pill">Cross-team Liaison</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-label">Portfolio</div>
+  <div class="section-title">Projects built with <em>purpose</em>.</div>
+  <div class="section-line"></div>
+  <div class="projects-grid fade-in">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="featured-badge">Featured</div>
+        <div class="project-icon">🎗️</div>
+        <div class="project-title">DetectIQ — Breast Cancer Early Detection</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          A machine learning dashboard that classifies tumours as Malignant or Benign using biopsy data. Built to explore how data science can support faster, more informed clinical decisions — not to replace doctors, but to empower them.
+          <br/><br/>
+          <em style="color:var(--teal);font-size:0.85rem;">Endorsed by clinical officers and registered nurses on LinkedIn.</em>
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">ML Classification</span>
+          <span class="tag">Healthcare AI</span>
+        </div>
+        <a href="https://breast-cancer-early-detection.streamlit.app/" target="_blank" class="project-link">
+          View Live App →
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📊</div>
+        <div class="project-title">MSc Dissertation (In Progress)</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Currently undertaking dissertation research at Robert Gordon University as part of the MSc Data Science programme. Focus areas include data analytics, machine learning, and computer vision applied to real-world challenges.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Research</span>
+          <span class="tag">RGU</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="project-link">
+          Follow on LinkedIn →
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">✈️</div>
+        <div class="project-title">Aviation ICT Systems — KCAA</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Over a decade of data and ICT operations at Kenya Civil Aviation Authority — managing EDMS systems, validating critical data, coordinating system rollouts, and supporting enterprise infrastructure in one of Kenya's most regulated environments.
+        </p>
+        <div class="project-tags">
+          <span class="tag">EDMS</span>
+          <span class="tag">Data Validation</span>
+          <span class="tag">ICT Operations</span>
+          <span class="tag">Regulated Environments</span>
+        </div>
+        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="project-link">
+          View Full Profile →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-label">Experience</div>
+  <div class="section-title">A career built on <em>reliability</em>.</div>
+  <div class="section-line"></div>
+  <div class="timeline fade-in">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2025 – 2026</div>
+      <div class="timeline-role">MSc Data Science — Dissertation Phase</div>
+      <div class="timeline-org">Robert Gordon University, Aberdeen</div>
+      <div class="timeline-desc">Advanced research in machine learning, computer vision, and data-driven problem solving. Built DetectIQ as a practical ML application demonstrating healthcare AI potential.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Jan – Aug 2025</div>
+      <div class="timeline-role">IT Support Assistant</div>
+      <div class="timeline-org">East African School of Aviation, Nairobi</div>
+      <div class="timeline-desc">Supported enterprise IT operations, system configuration, data integrity checks, and progress reporting in an aviation training institution.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Feb 2015 – Feb 2026</div>
+      <div class="timeline-role">IT Support & Operations Specialist</div>
+      <div class="timeline-org">Kenya Civil Aviation Authority (KCAA), Nairobi</div>
+      <div class="timeline-desc">11 years supporting safety-critical ICT systems, managing EDMS platforms, coordinating cross-functional projects, and preparing operational reports for senior management in a highly regulated environment.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2017 – 2024</div>
+      <div class="timeline-role">Freelance IT & Data Consultant</div>
+      <div class="timeline-org">Self-Employed</div>
+      <div class="timeline-desc">Delivered data management and IT solutions for business clients, managing timelines, deliverables, and producing technical documentation independently.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OPPORTUNITIES -->
+<section class="opportunities" id="opportunities">
+  <div class="section-label">What I'm Looking For</div>
+  <div class="section-title" style="color:var(--cream);">Open to the right <em>opportunity</em>.</div>
+  <div class="section-line"></div>
+  <div class="opp-grid fade-in">
+    <div class="opp-card">
+      <div class="opp-icon">💼</div>
+      <div class="opp-title">Employment</div>
+      <div class="opp-desc">Data analyst, data scientist, or ICT operations roles where I can deliver immediate impact.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">🎓</div>
+      <div class="opp-title">Research Placement</div>
+      <div class="opp-desc">Yearlong or short-term placements in data science, ML, or healthcare AI research.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">🤝</div>
+      <div class="opp-title">Collaboration</div>
+      <div class="opp-desc">Open to partnering with NHS, NGOs, startups, or universities on data-for-good projects.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">🌍</div>
+      <div class="opp-title">Consulting</div>
+      <div class="opp-desc">Short-term data engineering, ETL pipeline, or operational analytics consulting engagements.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Contact</div>
+  <div class="section-title">Let's build something <em>meaningful</em>.</div>
+  <div class="section-line"></div>
+  <div class="contact-grid fade-in">
+    <div>
+      <div class="contact-text">
+        <p>Whether you're looking for a data scientist, a researcher, or a reliable operations professional — I'd love to hear from you. I respond to all genuine opportunities.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:i.kuria@hotmail.com" class="contact-link">
+          <span class="contact-link-icon">📧</span>
+          <div>
+            <span class="contact-link-label">Primary Email</span>
+            <span class="contact-link-value">i.kuria@hotmail.com</span>
+          </div>
+        </a>
+        <a href="mailto:i.kuria@rgu.ac.uk" class="contact-link">
+          <span class="contact-link-icon">🎓</span>
+          <div>
+            <span class="contact-link-label">Academic Email</span>
+            <span class="contact-link-value">i.kuria@rgu.ac.uk</span>
+          </div>
+        </a>
+        <a href="tel:+447349688208" class="contact-link">
+          <span class="contact-link-icon">📱</span>
+          <div>
+            <span class="contact-link-label">Phone / WhatsApp</span>
+            <span class="contact-link-value">+44 7349 688 208</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/kuriaspace" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🔗</span>
+          <div>
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">linkedin.com/in/kuriaspace</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-note">
+      <h3>Ready to collaborate?</h3>
+      <p>I am actively seeking employment, research placement, and collaboration opportunities in data science, machine learning, and ICT operations. I am available for interviews, demos, and project discussions at short notice.</p>
+      <p style="margin-bottom:0;"><strong style="color:var(--teal);">Current availability:</strong> Immediately available for placement, part-time, or full-time roles. Dissertation submission expected 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Isaac Kuria</span> · Data Scientist & ICT Professional · Built with purpose.</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
