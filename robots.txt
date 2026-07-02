@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://me.kuriaspace.com/sitemap.xml
